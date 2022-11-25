@@ -1,4 +1,4 @@
-# macOS で Unity ML-Agents を動作させるための Docker の設定
+# macOS で Unity ML-Agents19 を動作させるための Docker の設定
 
 Mac のローカルに ml-agents と言う名前のディレクトリを作成し，そこにファイルを置く設定になっている（バインドマウント）．  
 その際に，Mac 上の UID などを取得しているので，Mac 上のエディタでプログラムなどを編集することができる．  
