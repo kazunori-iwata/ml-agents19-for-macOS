@@ -17,6 +17,7 @@ Mac のローカルに ml-agents と言う名前のディレクトリを作成�
    * ml-agents が作られる
 3. sh docker-run.sh を実行するとコンテナに入れるので、「sh ./setup.sh」を実行する
 4. ここで Unity 側で Linux を利用する設定が必要
-5. 「mlagents-learn config/ppo/Walker.yaml --run-id=firstRun」などで実行できる
-6. exit で終了
-7. コンテナを再利用したい場合は「sh docker-attach.sh」を実行する
+   * この[サイトのビルドの設定](https://qiita.com/kai_kou/items/6fbb8d7aa9d39820428b)などを参考に
+6. 「mlagents-learn config/ppo/Walker.yaml --run-id=firstRun」などで実行できる
+7. exit で終了
+8. コンテナを再利用したい場合は「sh docker-attach.sh」を実行する
