@@ -19,6 +19,6 @@ Mac のローカルに ml-agents と言う名前のディレクトリを作成�
 4. ここで Unity 側で Linux を利用する設定が必要
    * [DockerでUnity ML-Agentsを動作させてみた(v0.11.0対応)](https://qiita.com/kai_kou/items/6fbb8d7aa9d39820428b)にある「ビルドの設定」などを参考に
 6. 「mlagents-learn config/ppo/Walker.yaml --run-id=firstRun」などで実行できる
-7.  tensorboard は 「tensorboard --logdir=firstRun --host 0.0.0.0」と実行し、Mac 側のブラウザで「http://localhost:6006」を指定することで確認出来る
+7.  tensorboard は 「tensorboard --logdir=firstRun --host 0.0.0.0」と実行し、Mac 側のブラウザで「http\://localhost:6006」を指定することで確認出来る
 8. exit で終了
 9. exit したコンテナを再利用したい場合は「sh docker-attach.sh」を実行する
