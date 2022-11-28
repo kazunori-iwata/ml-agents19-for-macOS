@@ -1,21 +1,14 @@
 FROM ubuntu:22.04
 MAINTAINER Kazunori Iwata
 
-# ensure local python is preferred over distribution python
 ENV PATH /usr/bin:/usr/local/bin:$PATH
 
 RUN apt-get -y upgrade && apt-get update && apt-get install -y curl software-properties-common vim && add-apt-repository ppa:deadsnakes/ppa
 
-
-# http://bugs.python.org/issue19846
-# > At the moment, setting "LANG=C" on a Linux system *fundamentally breaks Python 3*, and that's not OK.
 ENV LANG C.UTF-8
 
 ENV TZ=Asia/Tokyo
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-# runtime dependencies
-
 
 RUN apt-get install -y python3.7
 RUN update-alternatives --install /usr/bin/python3 python3 /usr/bin/python3.7 1
@@ -26,7 +19,7 @@ RUN python3 -m pip install --upgrade pip
 # mlagents で最新版だとエラー LTS(1.8.1) なら OK 
 RUN pip3 install torch==1.8.1 torchvision==0.9.1 torchaudio==0.13.0 --extra-index-url https://download.pytorch.org/whl/lts/1.8/cpu
 
-# mlagents で最新版だとエラー 
+# mlagents で最新版だとエラーなのでこちらは使わない
 # RUN pip3 install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cpu
 
 COPY setup.sh /
@@ -51,10 +44,9 @@ ENV PATH /home/tmpuser/.local/bin:$PATH
 #RUN pip3 install -e .
 
 
-# port 5004 is the port used in in Editor training.
+# port 5004 is the port used in Editor training.
+# port 6006 is the port used by tensorboard.
 EXPOSE 5004 6006
 
 ENTRYPOINT ["fixuid"]
 
-# https://qiita.com/kai_kou/items/6fbb8d7aa9d39820428b 参考
-# シーンとビルドの設定がいまいち不明
